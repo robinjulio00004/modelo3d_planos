@@ -4,7 +4,7 @@ body{
   height:100vh;
   overflow:hidden;
     }
- #toggle-clipping-btn {
+ #vista {
       position: absolute;
       top: 20px;
       right: 20px;
@@ -21,13 +21,13 @@ body{
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       transition: background-color 0.3s ease;
     }
-    #toggle-clipping-btn:hover {
+    #vista:hover {
       background-color: #005a9e;
     }
-    #toggle-clipping-btn:active {
+    #vista:active {
       transform: translateY(1px);
     }
-    .direction-buttons {
+    .buttons {
       position: absolute;
       top: 70px;
       right: 20px;
@@ -36,7 +36,7 @@ body{
       flex-direction: column;
       gap: 10px;
     }
-    .dir-btn {
+    .btn {
       padding: 8px 12px;
       background-color: #28a745;
       color: white;
@@ -49,9 +49,18 @@ body{
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       transition: background-color 0.3s ease;
     }
-    .dir-btn:hover {
+    .btn:hover {
       background-color: #218838;
     }
-    .dir-btn:active {
+    .btn:active {
       transform: translateY(1px);
+    }
+    #axisx {
+      color:red;
+    }
+    #axisy {
+      color:green;
+    }
+    #axisz {
+      color:blue;
     }
