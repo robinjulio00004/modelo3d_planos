@@ -151,7 +151,7 @@ AFRAME.registerComponent('mi_ccplane2',{
 
 document.getElementById('boton1').addEventListener('click', function() {
   entidad.setAttribute('clipping-plane', 'enabled', 'false');
-	console.log("click");
+	alert("click");
 });
 
 document.getElementById('boton2').addEventListener('click', function() {
@@ -181,13 +181,14 @@ myCheckbox.addEventListener('change', function() {
        if (this.checked) {
          if(ldir.z==-1){
               plane1.setAttribute('visible','true');
-			 console.log("click");
+			 alert("click");
            }else if(ldir.x==-1)
              {
               plane2.setAttribute('visible','true');
              }else if(ldir.y==-0.22){
               plane3.setAttribute('visible','true');
-				 console.log("click");
+				 alert("click");
         }}});
 	</script>
 </html>
+
