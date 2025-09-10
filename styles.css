@@ -65,7 +65,8 @@ body{
       color:blue;
     }
     input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 33px;
   }
-
