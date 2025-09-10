@@ -1,7 +1,7 @@
 AFRAME.registerComponent('clipping-plane-helper', {
   schema: {
     offset: { type: 'vec3', default: { x: 0, y: 0, z: 0 } },
-    size: { type: 'number', default: 1 },
+    size: { type: 'number', default: 3 },
     color: { type: 'color', default: '#ff00ff' },
     opacity: { type: 'number', default: 0.5 },
     enabled: { type: 'boolean', default: false }
@@ -94,4 +94,5 @@ AFRAME.registerComponent('clipping-plane-helper', {
     }
   }
 });
+
 
