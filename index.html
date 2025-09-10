@@ -76,6 +76,7 @@ myCheckbox.addEventListener('change', function() {
           plane2.setAttribute('visible', 'false');
           plane3.setAttribute('visible', 'false'); 
        if (this.checked) {
+		   alert("click");
          if(ldir.z==-1){
               plane1.setAttribute('visible','true');
         }else if(ldir.x==-1){
@@ -85,3 +86,4 @@ myCheckbox.addEventListener('change', function() {
         }}});
 	</script>
 </html>
+
