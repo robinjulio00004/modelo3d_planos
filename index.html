@@ -34,6 +34,36 @@
    </a-entity>
   </a-scene>
 </body>
+	<script>
+		function toggleClippingPlane() {
+      const gltfAnimation = document.querySelector('a-entity[animation-mixer]');
+      const clippingComponent = gltfAnimation.components['clipping-plane'];
+      const currentEnabled = clippingComponent.data.enabled;
+
+      gltfAnimation.setAttribute('clipping-plane', 'enabled', !currentEnabled);
+      gltfAnimation.setAttribute('clipping-plane-helper', 'enabled', !currentEnabled);
+
+      const button = document.getElementById('toggle-clipping-btn');
+      button.textContent = !currentEnabled ? 'Disable Clipping' : 'Enable Clipping';
+    }
+
+    function setClippingDirection(x, y, z) {
+      const gltfAnimation = document.querySelector('a-entity[animation-mixer]');
+      gltfAnimation.setAttribute('clipping-plane', 'dir', `${x} ${y} ${z}`);
+      const helper = gltfAnimation.components['clipping-plane-helper'];
+      helper.update();
+    }
+
+    // Add button click handler when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.getElementById('toggle-clipping-btn');
+      button.addEventListener('click', toggleClippingPlane);
+      document.getElementById('dir-z-btn').addEventListener('click', () => setClippingDirection(0, 0, 1));
+      document.getElementById('dir-y-btn').addEventListener('click', () => setClippingDirection(0, 1, 0));
+      document.getElementById('dir-x-btn').addEventListener('click', () => setClippingDirection(1, 0, 0));
+    });
+	</script>
 </html>
+
 
 
