@@ -45,7 +45,8 @@
 </body>
 	<script>
 		const myCheckbox = document.getElementById('button6');
-		const entidad = document.querySelector('#modelo3d');
+		//const entidad = document.querySelector('#modelo3d');
+		const entidad = document.querySelector('a-entity[animation-mixer]');
 document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('boton1').addEventListener('click', function() {
   entidad.setAttribute('clipping-plane', 'enabled', 'false');
@@ -76,7 +77,6 @@ myCheckbox.addEventListener('change', function() {
           plane2.setAttribute('visible', 'false');
           plane3.setAttribute('visible', 'false'); 
        if (this.checked) {
-		   alert("click");
          if(ldir.z==-1){
               plane1.setAttribute('visible','true');
         }else if(ldir.x==-1){
@@ -87,5 +87,3 @@ myCheckbox.addEventListener('change', function() {
 	});
 	</script>
 </html>
-
-
