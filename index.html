@@ -19,9 +19,11 @@
 <button id="toggle-clipping-btn">Vista OFF</button>
 
   <div class="direction-buttons">
+	<button id="dir-x-btn" class="dir-btn">Vista X</button>
     <button id="dir-y-btn" class="dir-btn">Vista Y</button>
-    <button id="dir-x-btn" class="dir-btn">Vista X</button>
 	<button id="dir-z-btn" class="dir-btn">Vista Z</button>
+	<label>Plano</label>
+    <input id="button" type="checkbox">
   </div>
 
     <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;antialias: true;" xr-mode-ui="enabled: true">
@@ -37,16 +39,22 @@
 </body>
 	<script>
 		function toggleClippingPlane() {
+	  const button = document.getElementById('toggle-clipping-btn');
       const gltfAnimation = document.querySelector('#modelo3d');
       const clippingComponent = gltfAnimation.components['clipping-plane'];
       const currentEnabled = clippingComponent.data.enabled;
 
-      gltfAnimation.setAttribute('clipping-plane', 'enabled', !currentEnabled);
-      gltfAnimation.setAttribute('clipping-plane-helper', 'enabled', !currentEnabled);
-
-      const button = document.getElementById('toggle-clipping-btn');
-      button.textContent = !currentEnabled ? 'Vista OFF' : 'Vista ON';
+      	gltfAnimation.setAttribute('clipping-plane', 'enabled', !currentEnabled);
+      	button.textContent = !currentEnabled ? 'Vista OFF' : 'Vista ON';
     }
+
+		function toggleClippingPlaneHelper() {
+	  const gltfAnimation = document.querySelector('#modelo3d');
+      const clippingComponent = gltfAnimation.components['clipping-plane'];
+      const currentEnabled = clippingComponent.data.enabled;
+			
+		gltfAnimation.setAttribute('clipping-plane-helper', 'enabled', !currentEnabled);
+	}
 
     function setClippingDirection(x, y, z) {
       const gltfAnimation = document.querySelector('a-entity[animation-mixer]');
@@ -57,15 +65,14 @@
 
     // Add button click handler when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
+	  const myCheckbox = document.getElementById('button');
+	  const entidad = document.querySelector('#modelo3d');
       const button = document.getElementById('toggle-clipping-btn');
       button.addEventListener('click', toggleClippingPlane);
+	  myCheckbox.addEventListener('change', () => toggleClippingPlaneHelper);
       document.getElementById('dir-x-btn').addEventListener('click', () => setClippingDirection(0, 1, 0));
       document.getElementById('dir-y-btn').addEventListener('click', () => setClippingDirection(1, 0, 0));
 	  document.getElementById('dir-z-btn').addEventListener('click', () => setClippingDirection(0, 0, 1));
     });
 	</script>
 </html>
-
-
-
-
