@@ -40,16 +40,15 @@
    </a-entity>
   </a-scene>
 </body>
-	<script>
+	<script>		
+document.addEventListener('DOMContentLoaded', function() {
 		const myCheckbox = document.getElementById('button5');
 		//const entidad = document.querySelector('#modelo3d');
 		const entidad = document.querySelector('a-entity[animation-mixer]');
 		const estado= entidad.data.enabled;
-		
-document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('boton1').addEventListener('click', function() {
   entidad.setAttribute('clipping-plane', 'enabled', !estado);
-  document.getElementById('boton1').textContent = !estado ? 'Vista OFF' : 'Vista ON';
+  document.getElementById('boton1').value = !estado ? 'Vista OFF' : 'Vista ON';
     }
 });
 
@@ -84,3 +83,4 @@ myCheckbox.addEventListener('change', function() {
 	});
 	</script>
 </html>
+
