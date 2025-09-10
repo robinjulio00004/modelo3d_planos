@@ -1,6 +1,6 @@
 AFRAME.registerComponent('clipping-plane', {
   schema: {
-    dir: { type: 'vec3', default: { x: 1, y: 0, z: 0 } },
+    dir: { type: 'vec3', default: { x: 0, y: 0, z: 0 } },
     offset: { type: 'vec3', default: { x: 0, y: 0, z: 0 } },
     enabled: { type: 'boolean', default: true },
   },
@@ -111,3 +111,4 @@ AFRAME.registerComponent('clipping-plane', {
     });
   }
 });
+
