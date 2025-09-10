@@ -16,12 +16,12 @@
 	</head>
 
 <body>
-<button id="toggle-clipping-btn">Disable Clipping</button>
+<button id="toggle-clipping-btn">Vista OFF</button>
 
   <div class="direction-buttons">
-    <button id="dir-z-btn" class="dir-btn">Dir: Z (0,0,1)</button>
-    <button id="dir-y-btn" class="dir-btn">Dir: Y (0,1,0)</button>
-    <button id="dir-x-btn" class="dir-btn">Dir: X (1,0,0)</button>
+    <button id="dir-y-btn" class="dir-btn">Vista Y</button>
+    <button id="dir-x-btn" class="dir-btn">Vista X</button>
+	<button id="dir-z-btn" class="dir-btn">Vista Z</button>
   </div>
 
     <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;antialias: true;" xr-mode-ui="enabled: true">
@@ -29,14 +29,15 @@
       <a-asset-item id="motor" src="motor_brush.glb"></a-asset-item>
       </a-assets>
 		
-<a-entity id="modelo3d" position="0 -0.75 0" scale="0.5 0.5 0.5" gltf-model="#motor" animation-mixer clipping-plane></a-entity>    
+<a-entity id="modelo3d" position="0 0 0" gltf-model="#motor" animation-mixer clipping-plane="offset: 0 1 0"
+	clipping-plane-helper="size: 3; offset: 0 1 0"></a-entity>    
 <a-entity camera look-controls="enabled: false" orbit-controls="target: 0 0 0; minDistance: 10; maxDistance: 10; initialPosition: 1 2 3; rotateSpeed: 1;autoRotate:true">
    </a-entity>
   </a-scene>
 </body>
 	<script>
 		function toggleClippingPlane() {
-      const gltfAnimation = document.querySelector('a-entity[animation-mixer]');
+      const gltfAnimation = document.querySelector('#modelo3d');
       const clippingComponent = gltfAnimation.components['clipping-plane'];
       const currentEnabled = clippingComponent.data.enabled;
 
@@ -44,7 +45,7 @@
       gltfAnimation.setAttribute('clipping-plane-helper', 'enabled', !currentEnabled);
 
       const button = document.getElementById('toggle-clipping-btn');
-      button.textContent = !currentEnabled ? 'Disable Clipping' : 'Enable Clipping';
+      button.textContent = !currentEnabled ? 'Vista OFF' : 'Vista ON';
     }
 
     function setClippingDirection(x, y, z) {
@@ -58,12 +59,13 @@
     document.addEventListener('DOMContentLoaded', function() {
       const button = document.getElementById('toggle-clipping-btn');
       button.addEventListener('click', toggleClippingPlane);
-      document.getElementById('dir-z-btn').addEventListener('click', () => setClippingDirection(0, 0, 1));
-      document.getElementById('dir-y-btn').addEventListener('click', () => setClippingDirection(0, 1, 0));
-      document.getElementById('dir-x-btn').addEventListener('click', () => setClippingDirection(1, 0, 0));
+      document.getElementById('dir-x-btn').addEventListener('click', () => setClippingDirection(0, 1, 0));
+      document.getElementById('dir-y-btn').addEventListener('click', () => setClippingDirection(1, 0, 0));
+	  document.getElementById('dir-z-btn').addEventListener('click', () => setClippingDirection(0, 0, 1));
     });
 	</script>
 </html>
+
 
 
 
