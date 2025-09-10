@@ -136,7 +136,7 @@ AFRAME.registerComponent('mi_ccplane2',{
       <a-asset-item id="motor" src="motor_brush.glb"></a-asset-item>
       </a-assets>
         
-<a-entity id="modelo3d" position="0 -0.75 0" scale="0.5 0.5 0.5" gltf-model="#motor" animation-mixer clipping-plane="dir:0 0 0"></a-entity>
+<a-entity id="modelo3d" position="0 -0.75 0" scale="0.5 0.5 0.5" gltf-model="#motor" animation-mixer clipping-plane></a-entity>
     <a-entity id="plano1" visible="false" mi_ccplane="dir:0 0 1"></a-entity>
     <a-entity id="plano2" visible="false" mi_ccplane="dir:1 0 0"></a-entity>
     <a-entity id="plano3" visible="false" mi_ccplane2="dir:0 1 0"></a-entity>
@@ -151,6 +151,7 @@ AFRAME.registerComponent('mi_ccplane2',{
 
 document.getElementById('boton1').addEventListener('click', function() {
   entidad.setAttribute('clipping-plane', 'enabled', 'false');
+	console.log("click");
 });
 
 document.getElementById('boton2').addEventListener('click', function() {
@@ -180,21 +181,13 @@ myCheckbox.addEventListener('change', function() {
        if (this.checked) {
          if(ldir.z==-1){
               plane1.setAttribute('visible','true');
+			 console.log("click");
            }else if(ldir.x==-1)
              {
               plane2.setAttribute('visible','true');
              }else if(ldir.y==-0.22){
               plane3.setAttribute('visible','true');
+				 console.log("click");
         }}});
 	</script>
 </html>
-
-
-
-
-           
-
-
-
-
-
