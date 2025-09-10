@@ -58,14 +58,14 @@
     document.addEventListener('DOMContentLoaded', function() {
 	  const entidad = document.querySelector('a-entity[animation-mixer]');	
 	  document.getElementById('vista').addEventListener('click', ClippingPlane);  
-      document.getElementById('axisx').addEventListener('click', () => ClippingDirection(0, -1, 0));
+      document.getElementById('axisx').addEventListener('click', () => ClippingDirection(0, -1.5, 0));
       document.getElementById('axisy').addEventListener('click', () => ClippingDirection(1, 0, 0));
-	  document.getElementById('axisz').addEventListener('click', () => ClippingDirection(0, 0, 1));
+	  document.getElementById('axisz').addEventListener('click', () => ClippingDirection(0, 0, -1));
 	  document.getElementById('button').addEventListener('change', function () {
 	  	if (this.checked) {
-        entidad.setAttribute('clipping-plane-helper', 'enabled', 'true');
-      } else {
         entidad.setAttribute('clipping-plane-helper', 'enabled', 'false');
+      } else {
+        entidad.setAttribute('clipping-plane-helper', 'enabled', 'true');
       } 
 	  });
     });
