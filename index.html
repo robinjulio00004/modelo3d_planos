@@ -48,14 +48,11 @@
     }
 
 		function ClippingPlaneHelper(check) {
-	  const entidad = document.querySelector('a-entity[animation-mixer]');
-      //const ccomponent = entidad.components['clipping-plane'];
-      //const status = ccomponent.data.enabled;
-			
+	  const entidad = document.querySelector('a-entity[animation-mixer]');			
 		if (check) {
-        entidad.setAttribute('clipping-plane-helper', 'enabled', 'true')
+        entidad.setAttribute('clipping-plane-helper', 'enabled', 'true');
       } else {
-        entidad.setAttribute('clipping-plane-helper', 'enabled', 'false')
+        entidad.setAttribute('clipping-plane-helper', 'enabled', 'false');
       }
 	}
 
@@ -68,14 +65,11 @@
 
     // Add button click handler when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
-	  const myCheckbox = document.getElementById('button');
 	  document.getElementById('vista').addEventListener('click', ClippingPlane);  
       document.getElementById('axisx').addEventListener('click', () => ClippingDirection(0, -1, 0));
       document.getElementById('axisy').addEventListener('click', () => ClippingDirection(1, 0, 0));
 	  document.getElementById('axisz').addEventListener('click', () => ClippingDirection(0, 0, 1));
-	  myCheckbox.addEventListener('change', () => ClippingPlaneHelper(myCheckbox.checked);});
-	  
+	  document.getElementById('button').addEventListener('change', () => ClippingPlaneHelper(myCheckbox.checked);});
     });
 	</script>
 </html>
-
