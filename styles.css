@@ -10,7 +10,7 @@ body{
       right: 20px;
       z-index: 1000;
       padding: 10px 15px;
-      background-color: #007acc;
+      background-color: rgba(128,128,128,0.055);
       color: white;
       border: none;
       border-radius: 5px;
@@ -38,7 +38,7 @@ body{
     }
     .btn {
       padding: 8px 12px;
-      background-color: #28a745;
+      background-color: rgba(128,128,128,0.055);
       color: white;
       border: none;
       border-radius: 3px;
@@ -64,3 +64,4 @@ body{
     #axisz {
       color:blue;
     }
+
