@@ -54,6 +54,7 @@
       const status = ccomponent.data.enabled;
 			
 		entidad.setAttribute('clipping-plane-helper', 'enabled', !status);
+		document.getElementById('button').dispatchEvent(new Event('change'));
 	}
 
     function ClippingDirection(x, y, z) {
@@ -73,3 +74,4 @@
     });
 	</script>
 </html>
+
