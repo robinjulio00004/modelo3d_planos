@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
 AFRAME.registerComponent('clipping-plane', {
       schema: {
         dir: { type: 'vec3', default: { x: 0, y: 0, z: 0 } },
@@ -98,5 +97,4 @@ AFRAME.registerComponent('mi_ccplane2',{
     planeHelper = new THREE.PlaneHelper(clippingPlane, 3, 0xff00ff); 
     this.el.object3D.add(planeHelper);
   }
-});
 });
