@@ -70,3 +70,9 @@ body{
     width: 25px;
     height: 25px;
   }
+    label {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      color: cyan;
+    }
