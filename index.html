@@ -16,16 +16,13 @@
 
 <body>
 <div id="lista">
-    <label for="menu" id="menu">Vistas de sección  &nbsp;</label>
-    <select name="vistas" id="svistas">
-      <option id="boton1" value="svista">sin vista</option>
-      <option id="boton2" value="cvista">con vista</option>
-      <option id="boton3" value="vistax">vista en x</option>
-      <option id="boton4" value="vistay">vista en y</option>
-      <option id="boton5" value="vistaz">vista en z</option>
-    </select>
-    <label for="button6">&nbsp;&nbsp;Plano</label>
-        <input id="button6" type="checkbox">
+    <label id="menu">Vistas de sección  &nbsp;</label>
+      <button id="boton1" value="vista">Vista ON</button>
+      <button id="boton2" value="vistax">vista en x</button>
+      <button id="boton3" value="vistay">vista en y</button>
+      <button id="boton4" value="vistaz">vista en z</button>
+    <label for="button5">&nbsp;&nbsp;Plano</label>
+        <input id="button5" type="checkbox">
    </div>
 
     <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;antialias: true;" xr-mode-ui="enabled: true">
@@ -44,27 +41,27 @@
   </a-scene>
 </body>
 	<script>
-		const myCheckbox = document.getElementById('button6');
+		const myCheckbox = document.getElementById('button5');
 		//const entidad = document.querySelector('#modelo3d');
 		const entidad = document.querySelector('a-entity[animation-mixer]');
+		const estado= entidad.data.enabled;
+		
 document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('boton1').addEventListener('click', function() {
-  entidad.setAttribute('clipping-plane', 'enabled', 'false');
+  entidad.setAttribute('clipping-plane', 'enabled', !estado);
+  document.getElementById('boton1').textContent = !estado ? 'Vista OFF' : 'Vista ON';
+    }
 });
 
-document.getElementById('boton2').addEventListener('click', function() {
-  entidad.setAttribute('clipping-plane', 'enabled', 'true');
-});
-
-document.getElementById('boton3').addEventListener('click', function() {
+document.getElementById('boton2').addEventListener('click', ()=> {
  entidad.setAttribute('clipping-plane', {dir: {x: 0, y: -0.22, z: 0},enabled:'true'});
 });
 
-document.getElementById('boton4').addEventListener('click', function() {
+document.getElementById('boton3').addEventListener('click', ()=> {
  entidad.setAttribute('clipping-plane', {dir: {x: -1, y: 0, z: 0},enabled:'true'});
 });
 
-document.getElementById('boton5').addEventListener('click', function() {
+document.getElementById('boton4').addEventListener('click', ()=> {
  entidad.setAttribute('clipping-plane', {dir: {x: 0, y: 0, z: -1},enabled:'true'});
 });
 
