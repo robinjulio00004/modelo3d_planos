@@ -4,7 +4,7 @@ AFRAME.registerComponent('clipping-plane-helper', {
     size: { type: 'number', default: 3 },
     color: { type: 'color', default: '#ff00ff' },
     opacity: { type: 'number', default: 0.5 },
-    enabled: { type: 'boolean', default: false }
+    enabled: { type: 'boolean', default: true }
   },
 
   init: function () {
@@ -94,5 +94,6 @@ AFRAME.registerComponent('clipping-plane-helper', {
     }
   }
 });
+
 
 
